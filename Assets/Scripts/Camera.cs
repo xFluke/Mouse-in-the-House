@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿/*
+File name: Camera.cs
+Name: Miko Man 101127881
+Date Last Modified: Oct 25 2020
+Description: This is the controller for the camera
+Revision History:
+Oct 25: - Added basic player following
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;

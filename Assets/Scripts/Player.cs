@@ -1,4 +1,15 @@
-﻿using System.Collections;
+﻿/*
+File name: Player.cs
+Name: Miko Man 101127881
+Date Last Modified: Oct 25 2020
+Description: This is the controller for the player
+Revision History:
+Oct 25: - Added basic movement functionality
+        - Added obstacle detection
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -6,6 +6,7 @@ Description: This is the game manager which will be in charge of tracking Win/Lo
 Revision History:
 Oct 4: - Added Pause/Resume and Quit functionalities
        - Temporary GameOver test button
+Oct 25: - Added a way to automatically spawn cheese
  */
 
 
@@ -19,16 +20,47 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
+    // UI Variables
     [SerializeField]
     private GameObject pauseMenu;
     [SerializeField]
     private Canvas gameplayUI;
     [SerializeField] GameObject gameplayObjects;
-
     public SpriteRenderer[] spriteRenderers;
+
+    // Gameplay variables
+    public Tilemap tilemap;
+
+    [SerializeField]
+    private GameObject cheesePrefab;
+
 
     private void Awake() {
         spriteRenderers = gameplayObjects.GetComponentsInChildren<SpriteRenderer>();
+
+        tilemap = GameObject.FindGameObjectWithTag("Floor").GetComponent<Tilemap>();
+    }
+
+    private void Start() {
+        SpawnCheese();
+    }
+
+    private void SpawnCheese() {
+        BoundsInt bounds = tilemap.cellBounds;
+        TileBase[] floorTiles = tilemap.GetTilesBlock(bounds);
+
+        Transform cheeseParentTransform = GameObject.Find("GameplayObjects").transform;
+
+        // Find all floor tiles and instantiate a cheese object on them
+        for (int x = 0; x < bounds.size.x; x++) {
+            for (int y = 0; y < bounds.size.y; y++) {
+                TileBase tile = floorTiles[x + y * bounds.size.x];
+
+                if (tile != null) {
+                    Instantiate(cheesePrefab, new Vector3(0.5f * x - 5.25f, 0.5f * y - 4.75f, 0), Quaternion.identity, cheeseParentTransform);
+                }
+            }
+        }
     }
 
     public void GameOver() {

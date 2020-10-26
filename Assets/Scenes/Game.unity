@@ -5356,7 +5356,7 @@ GameObject:
   - component: {fileID: 959147721}
   m_Layer: 0
   m_Name: Floors
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7077,6 +7077,8 @@ MonoBehaviour:
   gameplayUI: {fileID: 817357307}
   gameplayObjects: {fileID: 529077188}
   spriteRenderers: []
+  tilemap: {fileID: 0}
+  cheesePrefab: {fileID: 1287662248879557232, guid: b34e252285cf8bc40a3de6782378bbd9, type: 3}
 --- !u!4 &1363429838
 Transform:
   m_ObjectHideFlags: 0
@@ -7808,7 +7810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1934352442
 RectTransform:
   m_ObjectHideFlags: 0
