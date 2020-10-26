@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
@@ -27,12 +28,15 @@ public class GameManager : MonoBehaviour
     private Canvas gameplayUI;
     [SerializeField] GameObject gameplayObjects;
     public SpriteRenderer[] spriteRenderers;
+    [SerializeField]
+    private Text scoreText;
 
     // Gameplay variables
     public Tilemap tilemap;
 
     [SerializeField]
     private GameObject cheesePrefab;
+    private int currentScore = 0;
 
 
     private void Awake() {
@@ -105,5 +109,10 @@ public class GameManager : MonoBehaviour
 
     public void QuitButton() {
         Application.Quit();
+    }
+
+    public void AddScore(int score) {
+        currentScore += score;
+        scoreText.text = "Score: " + currentScore.ToString();
     }
 }

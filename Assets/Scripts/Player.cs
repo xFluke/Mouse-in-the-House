@@ -45,8 +45,6 @@ public class Player : MonoBehaviour
         if (isMoving) {
             transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
         }
-
-        
     }
 
     public void MoveUp() {
