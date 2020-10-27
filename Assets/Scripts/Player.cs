@@ -6,6 +6,7 @@ Description: This is the controller for the player
 Revision History:
 Oct 25: - Added basic movement functionality
         - Added obstacle detection
+        - Added movement naimations
  */
 
 

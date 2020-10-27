@@ -32,6 +32,7 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Follow player within the given boundary
         Vector3 temp = player.transform.position;
         temp.x = Mathf.Clamp(temp.x, minX, maxX);
         temp.y = Mathf.Clamp(temp.y, minY, maxY);
