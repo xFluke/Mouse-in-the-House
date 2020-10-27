@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     private GameObject cheesePrefab;
     private int currentScore = 0;
 
+    [SerializeField]
+    private int cheeseCount = 0;
+
 
     private void Awake() {
         spriteRenderers = gameplayObjects.GetComponentsInChildren<SpriteRenderer>();
@@ -62,6 +65,7 @@ public class GameManager : MonoBehaviour
 
                 if (tile != null) {
                     Instantiate(cheesePrefab, new Vector3(0.5f * x - 5.25f, 0.5f * y - 4.75f, 0), Quaternion.identity, cheeseParentTransform);
+                    cheeseCount += 1;
                 }
             }
         }
@@ -115,4 +119,18 @@ public class GameManager : MonoBehaviour
         currentScore += score;
         scoreText.text = "Score: " + currentScore.ToString();
     }
+
+    public void DecrementCheese() {
+        cheeseCount--;
+
+        if (cheeseCount <= 0) {
+            ButtonManager.Instance.SetScore(currentScore);
+            Debug.Log(currentScore);
+            ButtonManager.Instance.Win();
+            
+            
+        }
+    }
+
+    
 }

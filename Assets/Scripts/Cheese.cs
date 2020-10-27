@@ -17,6 +17,7 @@ public class Cheese : MonoBehaviour
         if (collision.gameObject.tag == "Player") {
             Destroy(gameObject);
             FindObjectOfType<GameManager>().AddScore(100);
+            FindObjectOfType<GameManager>().DecrementCheese();
         }
     }
 }

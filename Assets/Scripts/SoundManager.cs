@@ -45,4 +45,8 @@ public class SoundManager : MonoBehaviour
         EffectsAudioSource.clip = clip;
         EffectsAudioSource.Play();
     }
+
+    public void StopMusic() {
+        MusicAudioSource.Stop();
+    }
 }
