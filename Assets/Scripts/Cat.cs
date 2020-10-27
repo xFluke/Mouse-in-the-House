@@ -155,7 +155,7 @@ public class Cat : MonoBehaviour
         } while (continuePicking);
 
         direction = tempDirection;
-        Debug.Log("Random Direction: " + direction);
+        //Debug.Log("Random Direction: " + direction);
     }
 
     // Helper Function for determining the opposite of a given direction
