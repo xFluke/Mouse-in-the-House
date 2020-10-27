@@ -34,10 +34,13 @@ public class Cat : MonoBehaviour
     public bool isMoving = false;
     float speed = 1f;
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         destination = transform.position;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -79,8 +82,8 @@ public class Cat : MonoBehaviour
     private void MoveUp() {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 0.15f, 0), Vector3.up, 0.4f, obstacleLayer);
 
-        //animator.SetInteger("XDirection", 0);
-        //animator.SetInteger("YDirection", 1);
+        animator.SetInteger("XDirection", 0);
+        animator.SetInteger("YDirection", 1);
 
         if (!isMoving && !hit) {
             destination = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
@@ -94,8 +97,8 @@ public class Cat : MonoBehaviour
     private void MoveDown() {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 0.15f, 0), Vector3.down, 0.4f, obstacleLayer);
 
-        //animator.SetInteger("XDirection", 0);
-        //animator.SetInteger("YDirection", -1);
+        animator.SetInteger("XDirection", 0);
+        animator.SetInteger("YDirection", -1);
 
         if (!isMoving && !hit) {
             destination = transform.position - new Vector3(0.0f, 0.5f, 0.0f);
@@ -109,10 +112,10 @@ public class Cat : MonoBehaviour
     private void MoveLeft() {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 0.15f, 0), Vector3.left, 0.4f, obstacleLayer);
 
-        //animator.SetInteger("XDirection", -1);
-        //animator.SetInteger("YDirection", 0);
-        
-           
+        animator.SetInteger("XDirection", -1);
+        animator.SetInteger("YDirection", 0);
+
+
         if (!isMoving && !hit) {
             destination = transform.position - new Vector3(0.5f, 0.0f, 0.0f);
         }
@@ -125,8 +128,8 @@ public class Cat : MonoBehaviour
     private void MoveRight() {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 0.15f, 0), Vector3.right, 0.4f, obstacleLayer);
 
-        //animator.SetInteger("XDirection", 1);
-        //animator.SetInteger("YDirection", 0);
+        animator.SetInteger("XDirection", 1);
+        animator.SetInteger("YDirection", 0);
 
         if (!isMoving && !hit) {
             destination = transform.position + new Vector3(0.5f, 0.0f, 0.0f);
