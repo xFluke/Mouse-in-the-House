@@ -87,15 +87,19 @@ public class Cat : MonoBehaviour
     }
 
     private void MoveUp() {
+        // Check if there's something above
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 0.15f, 0), Vector3.up, 0.4f, obstacleLayer);
 
+        // Animate
         animator.SetInteger("XDirection", 0);
         animator.SetInteger("YDirection", 1);
 
+        // If nothing is above, set destination to the tile above
         if (!isMoving && !hit) {
             destination = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
         }
 
+        // If something is above, switch directions
         if (hit) {
             SwitchDirection();
         }
@@ -152,6 +156,7 @@ public class Cat : MonoBehaviour
         Direction tempDirection = direction;
         bool continuePicking = true;
 
+        // Keep picking a random direction until a legal direction is found
         do {
             tempDirection = (Direction)Random.Range(0, (int)Direction.NUM_OF_DIRECTION);
 
