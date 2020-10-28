@@ -1,10 +1,12 @@
 ﻿/*
 File name: ButtonManager.cs
 Name: Miko Man 101127881
-Date Last Modified: OCt 4 2020
+Date Last Modified: OCt 27 2020
 Description: This is the button manager which will be in charge of UI button behaviors in all the scenes except the Game scene.
 Revision History:
 Oct 4: - Added all button behaviors for all the scenes except the Game scene.
+
+Oct 27: Added more button functionalities to work with the SoundManager
  */
 
 using System.Collections;

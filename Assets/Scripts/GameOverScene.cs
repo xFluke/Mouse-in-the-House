@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*
+File name: GameOverScene.cs
+Name: Miko Man 101127881
+Date Last Modified: Oct 27 2020
+Description: Just a script to set the score text
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +17,4 @@ public class GameOverScene : MonoBehaviour
         SoundManager.Instance.SetGameOverScoreText();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

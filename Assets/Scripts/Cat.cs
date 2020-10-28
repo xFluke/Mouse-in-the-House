@@ -1,7 +1,7 @@
 ﻿/*
 File name: Cat.cs
 Name: Miko Man 101127881
-Date Last Modified: Oct 25 2020
+Date Last Modified: Oct 27 2020
 Description: This is the script for the cat enemy
 Revision History:
 Oct 25: - Added basic movement functionality
@@ -9,6 +9,8 @@ Oct 25: - Added basic movement functionality
         - Partially implemented movement AI
 
 Oct 26: - Fully implemented movement AI. Not the best but satisfied with current state.
+
+Oct 27: - Stop movement when game is paused
  */
 
 using System.Collections;

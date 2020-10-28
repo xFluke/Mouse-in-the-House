@@ -1,10 +1,12 @@
 ﻿/*
 File name: SoundManager.cs
 Name: Miko Man 101127881
-Date Last Modified: OCt 26 2020
+Date Last Modified: OCt 27 2020
 Description: This is the sound manager which will be in charge of playing sound effects and background music
 Revision History:
+Oct 26: - Created basic structure for playing sound effects and music
 
+Oct 27: - Added more functionality
  */
 
 using System.Collections;

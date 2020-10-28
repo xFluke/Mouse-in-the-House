@@ -1,12 +1,14 @@
 ﻿/*
 File name: GameManager.cs
 Name: Miko Man 101127881
-Date Last Modified: OCt 4 2020
+Date Last Modified: OCt 27 2020
 Description: This is the game manager which will be in charge of tracking Win/Loss Conditions, as well as various UI button behaviors
 Revision History:
 Oct 4: - Added Pause/Resume and Quit functionalities
        - Temporary GameOver test button
 Oct 25: - Added a way to automatically spawn cheese
+
+Oct 27: - Switch to Game Over scene upon checking Win Condition
  */
 
 
@@ -138,13 +140,10 @@ public class GameManager : MonoBehaviour
     public void DecrementCheese() {
         cheeseCount--;
 
+        // Check win condition
         if (cheeseCount <= 0) {
             SoundManager.Instance.SetScore(currentScore);
             SceneManager.LoadScene("GameOver");
-
-            //ButtonManager.Instance.SetScore(currentScore);
-            //Debug.Log(currentScore);
-            //ButtonManager.Instance.SwitchToGameOverScene(); 
         }
     }
 

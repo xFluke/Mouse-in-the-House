@@ -1,12 +1,16 @@
 ﻿/*
 File name: Player.cs
 Name: Miko Man 101127881
-Date Last Modified: Oct 25 2020
+Date Last Modified: Oct 27 2020
 Description: This is the controller for the player
 Revision History:
 Oct 25: - Added basic movement functionality
         - Added obstacle detection
         - Added movement naimations
+
+Oct 27: - Added collision detection with cats 
+        - Player loses health upon collision and respawns
+        - Sound effect plays upon collision
  */
 
 using UnityEngine.SceneManagement;
