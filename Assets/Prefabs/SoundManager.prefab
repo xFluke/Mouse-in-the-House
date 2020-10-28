@@ -48,6 +48,7 @@ MonoBehaviour:
   EffectsAudioSource: {fileID: 8295647796883700502}
   MusicAudioSource: {fileID: 8295647796883700501}
   MainMenuMusic: {fileID: 8300000, guid: 7c3c913384a95ee45995bb8ecf91a521, type: 3}
+  GameMusic: {fileID: 8300000, guid: 636094c67c1fcb74bacf7a8d949d2da5, type: 3}
 --- !u!82 &8295647796883700502
 AudioSource:
   m_ObjectHideFlags: 0

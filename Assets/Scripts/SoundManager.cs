@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource MusicAudioSource;
 
     public AudioClip MainMenuMusic;
+    public AudioClip GameMusic;
 
     public static SoundManager Instance = null;
 
@@ -45,6 +46,11 @@ public class SoundManager : MonoBehaviour
         MusicAudioSource.Play();
     }
 
+    public void PlayGameMusic() {
+        MusicAudioSource.clip = GameMusic;
+        MusicAudioSource.Play();
+    }
+
     public void PlaySFX(AudioClip clip) {
         EffectsAudioSource.clip = clip;
         EffectsAudioSource.Play();
@@ -61,5 +67,12 @@ public class SoundManager : MonoBehaviour
 
     public void SetGameOverScoreText() {
         GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score.ToString();
+    }
+
+    public void PlayMainMenuMusic() {
+        if (MusicAudioSource.clip != MainMenuMusic) {
+            MusicAudioSource.clip = MainMenuMusic;
+            MusicAudioSource.Play();
+        }
     }
 }

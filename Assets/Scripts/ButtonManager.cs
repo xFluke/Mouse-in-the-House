@@ -23,11 +23,14 @@ public class ButtonManager : MonoBehaviour
     public void PlayButton() {
         SoundManager.Instance.StopMusic();
         SoundManager.Instance.PlaySFX(buttonSFX);
+        SoundManager.Instance.PlayGameMusic();
         SceneManager.LoadScene("Game");
     }
 
     public void ReturnToMainMenuButton() {
         SoundManager.Instance.PlaySFX(buttonSFX);
+
+        SoundManager.Instance.PlayMainMenuMusic();
         SceneManager.LoadScene("MainMenu");
     }
 

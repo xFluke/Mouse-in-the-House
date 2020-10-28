@@ -5860,10 +5860,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8295647796883700503, guid: c773834a010a40a4ba0a5266bd63aecb, type: 3}
-      propertyPath: MeowSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 5dc0eac16ff7cf147884f01091120ff9, type: 3}
     - target: {fileID: 8295647796883700520, guid: c773834a010a40a4ba0a5266bd63aecb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
