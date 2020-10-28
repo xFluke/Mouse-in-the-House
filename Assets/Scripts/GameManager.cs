@@ -40,11 +40,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private int cheeseCount = 0;
-
+    
+    private bool gamePaused = false;
 
     private void Awake() {
         spriteRenderers = gameplayObjects.GetComponentsInChildren<SpriteRenderer>();
-
         tilemap = GameObject.FindGameObjectWithTag("Floor").GetComponent<Tilemap>();
     }
 
@@ -79,9 +79,17 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(true);
         gameplayUI.GetComponent<CanvasGroup>().alpha = 0.1f;
         MakeGameplayObjectsTransparent();
+        gamePaused = true;
+
+        Cat[] cats = FindObjectsOfType<Cat>();
+        foreach (var cat in cats) {
+            cat.Pause();
+        }
     }
 
     private void MakeGameplayObjectsTransparent() {
+        
+
         foreach (SpriteRenderer sr in spriteRenderers) {
             Color tempColor = sr.color;
             tempColor.a = 0.1f;
@@ -94,6 +102,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void MakeGameplayObjectsOpaque() {
+
         foreach (SpriteRenderer sr in spriteRenderers) {
             Color tempColor = sr.color;
             tempColor.a = 1f;
@@ -109,6 +118,12 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         gameplayUI.GetComponent<CanvasGroup>().alpha = 1f;
         MakeGameplayObjectsOpaque();
+        gamePaused = false;
+
+        Cat[] cats = FindObjectsOfType<Cat>();
+        foreach (var cat in cats) {
+            cat.Unpause();
+        }
     }
 
     public void QuitButton() {
@@ -124,12 +139,17 @@ public class GameManager : MonoBehaviour
         cheeseCount--;
 
         if (cheeseCount <= 0) {
-            ButtonManager.Instance.SetScore(currentScore);
-            Debug.Log(currentScore);
-            ButtonManager.Instance.Win();
-            
-            
+            SoundManager.Instance.SetScore(currentScore);
+            SceneManager.LoadScene("GameOver");
+
+            //ButtonManager.Instance.SetScore(currentScore);
+            //Debug.Log(currentScore);
+            //ButtonManager.Instance.SwitchToGameOverScene(); 
         }
+    }
+
+    public int GetScore() {
+        return currentScore;
     }
 
     

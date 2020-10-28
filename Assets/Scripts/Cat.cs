@@ -36,6 +36,8 @@ public class Cat : MonoBehaviour
 
     Animator animator;
 
+    bool pause = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,8 @@ public class Cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!pause) { 
+
         if (transform.position != destination) {
             isMoving = true;
         }
@@ -53,21 +57,22 @@ public class Cat : MonoBehaviour
             isMoving = false;
         }
 
-        if (isMoving) {
-            transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
-        }
-        else {
-            if (direction == Direction.UP) {
-                MoveUp();
+            if (isMoving) {
+                transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
             }
-            else if (direction == Direction.DOWN) {
-                MoveDown();
-            }
-            else if (direction == Direction.LEFT) {
-                MoveLeft();
-            }
-            else if (direction == Direction.RIGHT) {
-                MoveRight();
+            else {
+                if (direction == Direction.UP) {
+                    MoveUp();
+                }
+                else if (direction == Direction.DOWN) {
+                    MoveDown();
+                }
+                else if (direction == Direction.LEFT) {
+                    MoveLeft();
+                }
+                else if (direction == Direction.RIGHT) {
+                    MoveRight();
+                }
             }
         }
 
@@ -233,5 +238,13 @@ public class Cat : MonoBehaviour
         else if (dir == Direction.RIGHT) {
             direction = Direction.RIGHT;
         }
+    }
+
+    public void Pause() {
+        pause = true;
+    }
+
+    public void Unpause() {
+        pause = false;
     }
 }

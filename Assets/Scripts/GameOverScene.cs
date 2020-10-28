@@ -7,8 +7,7 @@ public class GameOverScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ButtonManager.Instance.SetGameOverScoreText();
-        Debug.Log("SETTING SCORE");
+        SoundManager.Instance.SetGameOverScoreText();
     }
 
     // Update is called once per frame

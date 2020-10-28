@@ -16,23 +16,9 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    public static ButtonManager Instance = null;
-
     public AudioClip buttonSFX;
 
     private int score = 0;
-
-    void Awake() {
-        // Singleton Pattern
-        if (Instance == null) {
-            Instance = this;
-        }
-        else if (Instance != this) {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
 
     public void PlayButton() {
         SoundManager.Instance.StopMusic();
@@ -63,11 +49,8 @@ public class ButtonManager : MonoBehaviour
         score = _score;
     }
 
-    public void SetGameOverScoreText() {
-        GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score.ToString();
-    }
 
-    public void Win() {
+    public void SwitchToGameOverScene() {
         SceneManager.LoadScene("GameOver");
     }
 }
